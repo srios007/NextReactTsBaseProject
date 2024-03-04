@@ -5,11 +5,8 @@ import { SideBar } from "@/components/sideBar/sideBar";
 
 interface MainLayoutProps {
   title: string;
-  subtitle?: string;
   paddingTop?: string;
-  subtitleChildren?: ReactNode;
   children: ReactNode;
-  backRoute?: string;
 }
 
 export const MainLayout = ({
@@ -18,7 +15,7 @@ export const MainLayout = ({
 }: MainLayoutProps) => {
 
   return (
-    <main className="relative  h-screen overflow-hidden bg-background-gray rounded-2xl">
+    <main className="relative h-screen overflow-hidden bg-background-gray rounded-2xl">
       <div className="flex items-start justify-between h-full ">
         <SideBar />
         <div className="flex flex-col w-full h-full">

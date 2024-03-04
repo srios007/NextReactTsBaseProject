@@ -12,7 +12,7 @@ export const sideBarData = [
   },
   {
     title: "Productos",
-    path: "/inventory",
+    path: "/products",
     icon: <ArchiveBoxIcon />,
   }
 ];
