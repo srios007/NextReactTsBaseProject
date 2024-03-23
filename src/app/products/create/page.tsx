@@ -6,14 +6,19 @@ import React from 'react'
 import { Product } from '@/types/product';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createProduct } from '@/helper/SchemaValidate';
+import { ShortTextInput } from '@/components/Inputs';
+import { Button } from '@/components/Button';
 
 
 export default function CreateProduct() {
     const methods = useForm<Product>({
         resolver: yupResolver(createProduct),
     });
+
     const onSubmit: SubmitHandler<Product> = (data) => {
+        console.log(data)
     }
+
     return (
         <MainLayout title={''}  >
             <div>
@@ -24,29 +29,21 @@ export default function CreateProduct() {
                     <form onSubmit={methods.handleSubmit(onSubmit)}>
                         <div className='grid grid-cols-2 gap-5'>
                             <div className='flex flex-col gap-3'>
-                                <input
-                                    name='title'
-                                    type="text"
-                                />
-                                <input
-                                    name='price'
-                                    type="text"
-                                />
-                                <input
-                                    name='description'
-                                    type="text"
-                                />
+                                <ShortTextInput name="title" />
+                                <ShortTextInput name="price" />
+                                <ShortTextInput name="description" />
                             </div>
                             <div className='flex flex-col gap-3'>
-                                <input
-                                    name='category'
-                                    type="text"
-                                />
-                                <input
-                                    name='rating'
-                                    type="text"
-                                />
+                                <ShortTextInput name="category" />
+                                <ShortTextInput name="rating" />
                             </div>
+                            <Button
+                                type="submit"
+                                variant="purple"
+                                size="lg"
+                                isLoading={false}>
+                                Guardar
+                            </Button>
                         </div>
                     </form>
                 </FormProvider>
