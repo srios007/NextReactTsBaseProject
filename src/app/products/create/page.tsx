@@ -6,7 +6,7 @@ import React from 'react'
 import { Product } from '@/types/product';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createProduct } from '@/helper/SchemaValidate';
-import { ShortTextInput } from '@/components/Inputs';
+import { NumberInput, ShortTextInput } from '@/components/Inputs';
 import { Button } from '@/components/Button';
 
 
@@ -30,14 +30,15 @@ export default function CreateProduct() {
                         <div className='grid grid-cols-2 gap-5'>
                             <div className='flex flex-col gap-3'>
                                 <ShortTextInput name="title" title='Nombre' />
-                                <ShortTextInput name="price" title='Precio' />
+                                <NumberInput name="price" title='Precio' />
                                 <ShortTextInput name="description" title='Descipción' />
                             </div>
                             <div className='flex flex-col gap-3'>
                                 <ShortTextInput name="category" title='Categoría' />
-                                <ShortTextInput name="rating" title='Calificación' />
+                                <NumberInput name="rating" title='Calificación' />
                             </div>
                             <Button
+                           
                                 type="submit"
                                 variant="purple"
                                 size="lg"

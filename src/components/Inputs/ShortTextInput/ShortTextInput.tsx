@@ -10,7 +10,6 @@ interface PropsInputItem {
   icon?: ReactElement;
   needDisabled?: boolean;
   errorBottom?: boolean;
-
 }
 
 export const ShortTextInput = ({
