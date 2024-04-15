@@ -20,7 +20,7 @@ export default function CreateProduct() {
     }
 
     return (
-        <MainLayout title={''}  >
+        <MainLayout >
             <div>
                 <h1 className='text-black pb-5 text-[24px] font-bold'>
                     Crear producto
@@ -38,7 +38,7 @@ export default function CreateProduct() {
                                 <NumberInput name="rating" title='Calificación' />
                             </div>
                             <Button
-                           
+
                                 type="submit"
                                 variant="purple"
                                 size="lg"

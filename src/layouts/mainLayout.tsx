@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import { SideBar } from "@/components/sideBar/sideBar";
 
 interface MainLayoutProps {
-  title: string;
   paddingTop?: string;
   children: ReactNode;
 }
