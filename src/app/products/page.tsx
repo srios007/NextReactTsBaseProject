@@ -1,5 +1,6 @@
 "use client"
 
+import { Button } from '@/components/Button'
 import { Table, TableTr } from '@/components/Table'
 import { MainLayout } from '@/layouts'
 import { getProducts } from '@/services/prodcts'
@@ -10,8 +11,8 @@ export default function Products() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<FakeProduct[]>([]);
 
-  const headers = ["id", "Nombre", "Precio", "Categoría", "Rating"]
-  
+  const headers = ["id", "Nombre", "Precio", "Categoría", "Rating", "Acciones"]
+
   function getProductsFunc() {
     getProducts().then((res) => {
       console.log(res.data)
@@ -41,6 +42,14 @@ export default function Products() {
               <td >{product.price}</td>
               <td >{product.category}</td>
               <td >{product.rating.rate}</td>
+              <td >
+                <Button
+                  className="text-white bg-blue-500 rounded-md px-2 py-1"
+                  href={`/products/detail/${product.id}`}
+                >
+                  Ver
+                </Button>
+              </td>
             </TableTr>
           ))
           }
