@@ -15,8 +15,7 @@ export default function Products() {
 
   function getProductsFunc() {
     getProducts().then((res) => {
-      console.log(res.data)
-      setProducts(res.data)
+      setProducts(res)
       setIsLoading(false)
     }).catch((err) => {
       console.log(err)

@@ -1,6 +1,6 @@
-import axios from "axios";
+import { callGetHttpAdapter } from "./axios/CallHttpAdapter";
 
   export async function getProducts(): Promise<any> {
-    const response = await axios.get("https://fakestoreapi.com/products");
+    const response = await callGetHttpAdapter("https://fakestoreapi.com/products", (data) => data);
     return response;
   }
