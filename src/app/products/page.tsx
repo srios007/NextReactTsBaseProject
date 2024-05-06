@@ -22,9 +22,15 @@ export default function Products() {
       setIsLoading(false)
     })
   }
+  /// Otra forma de hacerlo
+  async function getProduct() {
+    let prueba = await getProducts();
+    console.log(prueba)
+  }
 
   useEffect(() => {
     getProductsFunc()
+    getProduct()
   }, [])
 
   return (
