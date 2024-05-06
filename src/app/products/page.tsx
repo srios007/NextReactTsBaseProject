@@ -4,12 +4,12 @@ import { Button } from '@/components/Button'
 import { Table, TableTr } from '@/components/Table'
 import { MainLayout } from '@/layouts'
 import { getProducts } from '@/services/prodcts'
-import { FakeProduct } from '@/types/fakeProduct'
+import { FakeProductEndpoint } from '@/types/fakeProduct'
 import React, { useEffect, useState } from 'react'
 
 export default function Products() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [products, setProducts] = useState<FakeProduct[]>([]);
+  const [products, setProducts] = useState<FakeProductEndpoint[]>([]);
 
   const headers = ["id", "Nombre", "Precio", "Categoría", "Rating", "Acciones"]
 
@@ -32,7 +32,7 @@ export default function Products() {
       <div>
         <h1 className="text-3xl font-bold text-black">Productos</h1>
         <Table headers={headers} isLoading={isLoading}>
-          {products.map((product: FakeProduct) => (
+          {products.map((product: FakeProductEndpoint) => (
             <TableTr key={product.id.toString()}>
               <td >{product.id}</td>
               <td className="max-w-[100px] overflow-hidden text-ellipsis">

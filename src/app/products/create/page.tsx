@@ -3,20 +3,36 @@
 import { MainLayout } from '@/layouts'
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import React from 'react'
-import { Product } from '@/types/product';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createProduct } from '@/helper/SchemaValidate';
 import { NumberInput, ShortTextInput } from '@/components/Inputs';
 import { Button } from '@/components/Button';
+import { FakeProductPost } from '@/types/fakeProduct';
+import { postProduct } from '@/services/prodcts';
+import { useRouter } from 'next/navigation';
+
 
 
 export default function CreateProduct() {
-    const methods = useForm<Product>({
+    const navigate = useRouter();
+
+    const methods = useForm<FakeProductPost>({
         resolver: yupResolver(createProduct),
     });
 
-    const onSubmit: SubmitHandler<Product> = (data) => {
+    const onSubmit: SubmitHandler<FakeProductPost> = (data) => {
         console.log(data)
+        createProductFunc(data)
+    }
+
+    function createProductFunc(product: FakeProductPost) {
+        postProduct(product)
+            .then((res) => {
+                navigate.back();
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return (
@@ -35,7 +51,7 @@ export default function CreateProduct() {
                             </div>
                             <div className='flex flex-col gap-3'>
                                 <ShortTextInput name="category" title='Categoría' />
-                                <NumberInput name="rating" title='Calificación' />
+                                <ShortTextInput name="image" title='Link de la imagen' />
                             </div>
                             <Button
 

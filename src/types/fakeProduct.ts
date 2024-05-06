@@ -1,4 +1,4 @@
-export interface FakeProduct {
+export interface FakeProductEndpoint {
     id:          number;
     title:       string;
     price:       number;
@@ -11,4 +11,12 @@ export interface FakeProduct {
 export interface Rating {
     rate:  number;
     count: number;
+}
+
+export interface FakeProductPost {
+    title:       string;
+    price:       number;
+    description: string;
+    category:    string;
+    image:       string;
 }

@@ -43,6 +43,6 @@ export const createProduct = yup.object<Product>().shape({
   price:       requiredNumber,
   description: requiredString,
   category:    requiredString,
-  rating:      requiredNumber,
+  image:       requiredString,
 });
 
